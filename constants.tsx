@@ -10,7 +10,6 @@ export const TRANSLATIONS: Record<'ja' | 'vi', TranslationSet> = {
     navQuiz: "クイズ",
     heroTitle: "ホワイトボックステスト",
     heroSub: "プログラムの内部構造を理解し、品質を高める手法",
-    teamTitle: "グループ1 メンバー紹介",
     startLearning: "学習を始める",
     quizTitle: "知識チェッククイズ",
     leaderboard: "ランキング"
@@ -23,7 +22,6 @@ export const TRANSLATIONS: Record<'ja' | 'vi', TranslationSet> = {
     navQuiz: "Kiểm tra",
     heroTitle: "Kiểm thử hộp trắng",
     heroSub: "Phương pháp hiểu cấu trúc bên trong chương trình để nâng cao chất lượng",
-    teamTitle: "Giới thiệu thành viên Nhóm 1",
     startLearning: "Bắt đầu học",
     quizTitle: "Bài kiểm tra kiến thức",
     leaderboard: "Bảng xếp hạng"

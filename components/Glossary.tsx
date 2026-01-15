@@ -30,7 +30,7 @@ const Glossary: React.FC<GlossaryProps> = ({ lang }) => {
         <input
           type="text"
           placeholder={lang === 'ja' ? "キーワードで検索..." : "Tìm kiếm theo từ khóa..."}
-          className="w-full px-5 py-3 rounded-full border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+          className="w-full px-5 py-3 rounded-full border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none bg-white shadow-sm"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
@@ -43,20 +43,20 @@ const Glossary: React.FC<GlossaryProps> = ({ lang }) => {
         {filtered.map((item, i) => (
           <div key={i} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-              <div className="flex items-center space-x-3">
+              <div className="flex flex-wrap items-center gap-3">
                 <span className="text-2xl font-bold text-blue-600">{item.ja}</span>
-                <span className="text-gray-400">|</span>
+                <span className="text-gray-400 hidden md:inline">|</span>
                 <span className="text-xl font-medium text-gray-800">{item.vi}</span>
               </div>
             </div>
             <div className="grid md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
               <div className="space-y-1">
-                <span className="font-bold text-gray-400 uppercase text-xs">Japanese</span>
-                <p>{item.descJa}</p>
+                <span className="font-bold text-gray-400 uppercase text-[10px] tracking-wider">Japanese Explanation</span>
+                <p className="text-gray-700">{item.descJa}</p>
               </div>
               <div className="space-y-1">
-                <span className="font-bold text-gray-400 uppercase text-xs">Vietnamese</span>
-                <p>{item.descVi}</p>
+                <span className="font-bold text-gray-400 uppercase text-[10px] tracking-wider">Vietnamese Explanation</span>
+                <p className="text-gray-700">{item.descVi}</p>
               </div>
             </div>
           </div>

@@ -9,7 +9,6 @@ export interface TranslationSet {
   navQuiz: string;
   heroTitle: string;
   heroSub: string;
-  teamTitle: string;
   startLearning: string;
   quizTitle: string;
   leaderboard: string;
