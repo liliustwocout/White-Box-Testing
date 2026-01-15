@@ -1,5 +1,6 @@
 
 export type Language = 'ja' | 'vi';
+export type UserRole = 'user' | 'admin';
 
 export interface TranslationSet {
   navHome: string;

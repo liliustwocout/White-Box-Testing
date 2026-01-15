@@ -24,11 +24,11 @@ const LearningContent: React.FC<LearningContentProps> = ({ lang }) => {
       icon: "🔍"
     },
     {
-      title: lang === 'ja' ? "カバレッジとは" : "Độ bao phủ (Coverage) là gì?",
+      title: lang === 'ja' ? "網羅率（網羅）とは" : "Độ bao phủ (Coverage) là gì?",
       content: lang === 'ja' ? [
-        "カバレッジは、「どのくらいコードをテストしたか」という意味です。",
-        "いろいろなレベル（種類）のカバレッジがあります。",
-        "一般的に、カバレッジが高いほど、テストの品質も高くなります。"
+        "網羅率は、「どのくらいコードをテストしたか」という意味です（カバレッジとも呼びます）。",
+        "いろいろなレベル（種類）の網羅手法があります。",
+        "一般的に、網羅率が高いほど、テストの品質も高くなります。"
       ] : [
         "Bao phủ có nghĩa là 'chúng ta đã kiểm tra bao nhiêu mã nguồn'.",
         "Có nhiều mức độ (loại) bao phủ khác nhau.",
@@ -37,10 +37,10 @@ const LearningContent: React.FC<LearningContentProps> = ({ lang }) => {
       icon: "📊"
     },
     {
-      title: lang === 'ja' ? "文カバレッジ (Statement Coverage)" : "Bao phủ câu lệnh (Statement Coverage)",
+      title: lang === 'ja' ? "命令網羅 (Statement Coverage)" : "Bao phủ câu lệnh (Statement Coverage)",
       content: lang === 'ja' ? [
         "目的：すべての文を1回以上実行すること。",
-        "特徴：簡単で分かりやすいが、条件の中までは詳しく分かりません。",
+        "特徴：基本の網羅手法ですが、条件の中までは詳しく判定しません。",
         "例：if文の中の行が1回でも実行されればOKです。"
       ] : [
         "Mục đích: Thực thi mọi câu lệnh ít nhất một lần.",
@@ -50,10 +50,10 @@ const LearningContent: React.FC<LearningContentProps> = ({ lang }) => {
       icon: "📝"
     },
     {
-      title: lang === 'ja' ? "分岐カバレッジ (Branch Coverage)" : "Bao phủ nhánh (Branch Coverage)",
+      title: lang === 'ja' ? "判定条件網羅 (Branch Coverage)" : "Bao phủ nhánh (Branch Coverage)",
       content: lang === 'ja' ? [
-        "目的：条件のTrueとFalseの両方をテストすること。",
-        "特徴：if文の2つの「道」を確認します。文カバレッジより品質が高いです。",
+        "目的：判定条件の真(True)と偽(False)の両方をテストすること。",
+        "特徴：分岐（道）を確認します。命令網羅より品質が高いです。",
         "例：条件が成り立つ時と成り立たない時の両方をテストします。"
       ] : [
         "Mục đích: Kiểm tra cả hai trường hợp True và False của điều kiện.",
@@ -63,7 +63,7 @@ const LearningContent: React.FC<LearningContentProps> = ({ lang }) => {
       icon: "🌿"
     },
     {
-      title: lang === 'ja' ? "条件カバレッジ (Condition Coverage)" : "Bao phủ điều kiện (Condition Coverage)",
+      title: lang === 'ja' ? "条件網羅 (Condition Coverage)" : "Bao phủ điều kiện (Condition Coverage)",
       content: lang === 'ja' ? [
         "目的：条件の中のそれぞれの要素をテストすること。",
         "特徴：複合的な条件(A and Bなど)を個別に確認します。バグを見つけやすくなります。",
@@ -76,10 +76,10 @@ const LearningContent: React.FC<LearningContentProps> = ({ lang }) => {
       icon: "⚙️"
     },
     {
-      title: lang === 'ja' ? "複数条件カバレッジ (Multiple Condition)" : "Bao phủ đa điều kiện (Multiple Condition)",
+      title: lang === 'ja' ? "複数条件網羅 (Multiple Condition)" : "Bao phủ đa điều kiện (Multiple Condition)",
       content: lang === 'ja' ? [
         "目的：すべての条件の組み合わせをテストすること。",
-        "特徴：すべてのパターンを確認するため、最もテスト品質が高いです。",
+        "特徴：全パターンを確認するため、最も網羅性が高いです。",
         "例：AとBの全4パターンをすべてテストします。"
       ] : [
         "Mục đích: Kiểm thử tất cả các tổ hợp kết hợp của mọi điều kiện.",

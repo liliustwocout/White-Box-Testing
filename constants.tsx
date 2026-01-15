@@ -9,7 +9,7 @@ export const TRANSLATIONS: Record<'ja' | 'vi', TranslationSet> = {
     navGlossary: "用語集",
     navQuiz: "クイズ",
     heroTitle: "ホワイトボックステスト",
-    heroSub: "プログラムの内部構造を理解し、品質を高める手法",
+    heroSub: "プログラムの内部構造を理解し、網羅率を高める手法",
     startLearning: "学習を始める",
     quizTitle: "知識チェッククイズ",
     leaderboard: "ランキング"
@@ -38,20 +38,20 @@ export const QUIZ_QUESTIONS: Record<'ja' | 'vi', QuizQuestion[]> = {
     },
     {
       id: 2,
-      question: "カバレッジ（網羅率）が高いほど、どうなりますか？",
+      question: "網羅率（カバレッジ）が高いほど、どうなりますか？",
       options: ["プログラムが遅くなる", "テストの品質が低くなる", "テストの品質が高くなる", "バグが増える"],
       correctAnswer: 2
     },
     {
       id: 3,
-      question: "すべての命令を少なくとも1回実行するカバレッジは何ですか？",
-      options: ["分岐カバレッジ", "条件カバレッジ", "複数条件カバレッジ", "文カバレッジ"],
+      question: "すべての命令を少なくとも1回実行する網羅手法は何ですか？",
+      options: ["判定条件網羅", "条件網羅", "複数条件網羅", "命令網羅"],
       correctAnswer: 3
     },
     {
       id: 4,
-      question: "TrueとFalseの両方の道をテストするのはどのカバレッジですか？",
-      options: ["分岐カバレッジ", "文カバレッジ", "単体テスト", "結合テスト"],
+      question: "判定条件の真(True)と偽(False)の両方の道をテストするのはどの網羅手法ですか？",
+      options: ["判定条件網羅", "命令網羅", "単体テスト", "結合テスト"],
       correctAnswer: 0
     },
     {
@@ -100,10 +100,10 @@ export const GLOSSARY: GlossaryItem[] = [
   { ja: "ブラックボックステスト", vi: "Kiểm thử hộp đen", descJa: "システムの内部構造は考慮せず、入力に対して期待される出力が得られるかを確認するテスト。", descVi: "Kiểm thử xác nhận đầu ra mong muốn cho đầu vào mà không xem xét cấu trúc bên trong của hệ thống." },
   { ja: "ロジック", vi: "Logic", descJa: "プログラムが動くための論理的な流れや計算の手順。", descVi: "Luồng logic hoặc các bước tính toán để chương trình hoạt động." },
   { ja: "内部構造", vi: "Cấu trúc bên trong", descJa: "プログラムのソースコードや設計の仕組みのこと。", descVi: "Hệ thống mã nguồn và thiết kế bên trong của chương trình." },
-  { ja: "カバレッジ", vi: "Độ bao phủ (Coverage)", descJa: "どのくらいコードをテストしたかを示す割合。", descVi: "Tỷ lệ cho biết bao nhiêu phần của mã nguồn đã được kiểm thử." },
-  { ja: "文カバレッジ", vi: "Bao phủ câu lệnh (Statement Coverage)", descJa: "すべての命令文を1回以上実行すること。", descVi: "Thực thi mọi câu lệnh hướng dẫn ít nhất một lần." },
-  { ja: "分岐カバレッジ", vi: "Bao phủ nhánh (Branch Coverage)", descJa: "判定条件の真(True)と偽(False)をテストすること。", descVi: "Kiểm thử cả hai trường hợp đúng (True) và sai (False) của điều kiện quyết định." },
-  { ja: "条件カバレッジ", vi: "Bao phủ điều kiện (Condition Coverage)", descJa: "条件の中の個々の要素をテストすること。", descVi: "Kiểm thử từng yếu tố riêng lẻ trong một điều kiện phức hợp." },
-  { ja: "複数条件カバレッジ", vi: "Bao phủ đa điều kiện (Multiple Condition Coverage)", descJa: "すべての条件の組み合わせを網羅すること。", descVi: "Bao phủ tất cả các tổ hợp có thể có của các điều kiện." },
+  { ja: "網羅率", vi: "Độ bao phủ (Coverage)", descJa: "どのくらいコードをテストしたかを示す割合。一般にカバレッジとも呼ばれる。", descVi: "Tỷ lệ cho biết bao nhiêu phần của mã nguồn đã được kiểm thử." },
+  { ja: "命令網羅", vi: "Bao phủ câu lệnh (Statement Coverage)", descJa: "すべての命令文を1回以上実行すること。C0網羅とも呼ばれる。", descVi: "Thực thi mọi câu lệnh hướng dẫn ít nhất một lần." },
+  { ja: "判定条件網羅", vi: "Bao phủ nhánh (Branch Coverage)", descJa: "判定条件の真(True)と偽(False)をテストすること。C1網羅とも呼ばれる。", descVi: "Kiểm thử cả hai trường hợp đúng (True) và sai (False) của điều kiện quyết định." },
+  { ja: "条件網羅", vi: "Bao phủ điều kiện (Condition Coverage)", descJa: "条件の中の個々の要素をテストすること。C2網羅とも呼ばれる。", descVi: "Kiểm thử từng yếu tố riêng lẻ trong một điều kiện phức hợp." },
+  { ja: "複数条件網羅", vi: "Bao phủ đa điều kiện (Multiple Condition Coverage)", descJa: "すべての条件の組み合わせを網羅すること。", descVi: "Bao phủ tất cả các tổ hợp có thể có của các điều kiện." },
   { ja: "単体テスト", vi: "Kiểm thử đơn vị (Unit Test)", descJa: "個々の関数やメソッドが正しく動くかを確認するテスト。", descVi: "Kiểm thử để xác nhận từng hàm hoặc phương thức hoạt động chính xác." }
 ];
