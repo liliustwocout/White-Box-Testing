@@ -55,7 +55,7 @@ const App: React.FC = () => {
         lang={lang}
       />
 
-      <main className="flex-grow pt-20 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+      <main className="flex-grow pt-32 md:pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="mb-4 flex justify-end">
           {userRole === 'admin' && (
             <div className="flex items-center space-x-2 bg-red-50 text-red-700 text-xs font-bold px-4 py-2 rounded-full border border-red-100 shadow-sm animate-fadeIn">
