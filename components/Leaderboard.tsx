@@ -18,10 +18,27 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ lang, userRole }) => {
     setLoading(true);
     try {
       const data = await database.getResults();
+      
+      // Logic sắp xếp mạnh mẽ:
       const sorted = [...data].sort((a, b) => {
-        if (b.score !== a.score) return b.score - a.score;
-        return new Date(b.date).getTime() - new Date(a.date).getTime();
+        // 1. Ưu tiên điểm cao trước
+        if (b.score !== a.score) {
+          return b.score - a.score;
+        }
+        
+        // 2. Nếu bằng điểm, ai làm sớm hơn (thời gian nhỏ hơn) xếp trên
+        const timeA = new Date(a.date).getTime();
+        const timeB = new Date(b.date).getTime();
+        
+        // Xử lý trường hợp parse lỗi (nếu dữ liệu cũ có định dạng không chuẩn)
+        if (isNaN(timeA) || isNaN(timeB)) {
+          // Nếu không parse được, so sánh theo chuỗi (fallback)
+          return a.date.localeCompare(b.date);
+        }
+        
+        return timeA - timeB;
       });
+      
       setResults(sorted);
     } catch (e) {
       console.error(e);
@@ -30,10 +47,28 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ lang, userRole }) => {
     }
   };
 
+  const formatDisplayDate = (dateStr: string) => {
+    try {
+      const d = new Date(dateStr);
+      if (isNaN(d.getTime())) return dateStr; // Trả về nguyên bản nếu không parse được
+      
+      // Định dạng hiển thị đẹp
+      return d.toLocaleString(lang === 'ja' ? 'ja-JP' : 'vi-VN', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+    } catch {
+      return dateStr;
+    }
+  };
+
   const handleResetClick = async () => {
     if (confirmStage === 0) {
       setConfirmStage(1);
-      // Tự động quay về trạng thái cũ sau 3 giây nếu không bấm xác nhận
       setTimeout(() => setConfirmStage(0), 4000);
       return;
     }
@@ -46,7 +81,7 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ lang, userRole }) => {
       alert(lang === 'ja' ? "リセットが完了しました" : "Đã làm sạch bảng điểm thành công!");
     } catch (err: any) {
       alert(lang === 'ja' 
-        ? "エラーが発生しました。SQL EditorでDISABLE RLSを実行したか確認してください。" 
+        ? "エラーが発生しました。" 
         : "Lỗi: " + err.message);
       setConfirmStage(0);
     } finally {
@@ -180,7 +215,7 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ lang, userRole }) => {
                     </td>
                     <td className="px-8 py-6 whitespace-nowrap text-right">
                       <span className="text-xs font-bold text-gray-400 italic">
-                        {res.date}
+                        {formatDisplayDate(res.date)}
                       </span>
                     </td>
                   </tr>

@@ -38,10 +38,11 @@ const Quiz: React.FC<QuizProps> = ({ lang, onComplete }) => {
     } else {
       setIsFinished(true);
       setIsSaving(true);
+      // SỬ DỤNG toISOString() ĐỂ LƯU TRỮ CHUẨN XÁC TRONG DATABASE
       await database.saveResult({
         name: userName,
         score: newScore,
-        date: new Date().toLocaleString()
+        date: new Date().toISOString()
       });
       setIsSaving(false);
     }

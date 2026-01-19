@@ -11,7 +11,8 @@ const TABLE_NAME = 'leaderboard';
 export const database = {
   async getResults(): Promise<QuizResult[]> {
     try {
-      const response = await fetch(`${SUPABASE_URL}/rest/v1/${TABLE_NAME}?select=*&order=score.desc,date.desc`, {
+      // Sửa order: score.desc (điểm giảm), date.asc (thời gian tăng - ai sớm hơn lên trước)
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/${TABLE_NAME}?select=*&order=score.desc,date.asc`, {
         headers: {
           'apikey': SUPABASE_KEY,
           'Authorization': `Bearer ${SUPABASE_KEY}`
